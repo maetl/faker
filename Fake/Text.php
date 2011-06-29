@@ -5,11 +5,11 @@ class Fake_Text extends Fake {
 	/**
 	 * Workaround for lack of late static binding in PHP < 5.3.
 	 */
-	protected static function getClass($class = __CLASS__) {
+	protected function getClass($class = __CLASS__) {
 		return $class;
 	}
 	
-	static public function passage($paragraphs=3) {
+	public function passage($paragraphs=3) {
 		$passage = "";
 		$counter = 0;
 		while($counter < $paragraphs) {
@@ -20,7 +20,7 @@ class Fake_Text extends Fake {
 		return $passage;
 	}
 
-	static public function htmlPassage($paragraphs=3) {
+	public function htmlPassage($paragraphs=3) {
 		$passage = "";
 		$counter = 0;
 		while($counter < $paragraphs) {
@@ -31,11 +31,11 @@ class Fake_Text extends Fake {
 		return $passage;
 	}
 
-	static public function htmlParagraph($sentences=3) {
+	public function htmlParagraph($sentences=3) {
 		return "<p>".self::paragraph($sentences)."</p>";
 	}
 
-	static public function paragraph($sentences=3) {
+	public function paragraph($sentences=3) {
 		$paragraph = "";
 		$counter = 0;
 		while($counter < $sentences) {
@@ -46,7 +46,7 @@ class Fake_Text extends Fake {
 		return $paragraph;
 	}
 
-	static public function sentence($words=false) {
+	public function sentence($words=false) {
 		if (!$words) {
 			$min = 1;
 			$max = rand(1,12);
@@ -54,10 +54,12 @@ class Fake_Text extends Fake {
 			$min = $words;
 			$max = $words;
 		}
-		return ucfirst(self::lexicalize(self::getList('words'), $min, $max)) . '.';
+		
+		$list = $this->getWordList();
+		return ucfirst(self::lexicalize($list, $min, $max)) . '.';
 	}
 
-	static public function words($words=false) {
+	public function words($words=false) {
 		if (!$words) {
 			$min = 1;
 			$max = rand(1,12);

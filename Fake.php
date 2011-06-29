@@ -8,8 +8,13 @@ abstract class Fake {
 	/**
 	 * Workaround for lack of late static binding in PHP < 5.3.
 	 */
-	protected static function getClass($class = __CLASS__) {
+	protected function getClass($class = __CLASS__) {
 		return $class;
+	}
+	
+	public function __get($property) {
+		$classname = $this->getClass() . '_' . $property;
+		return new $classname;
 	}
 	
 	/**
