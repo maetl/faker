@@ -12,14 +12,16 @@ Requirements
 Overview
 --------
 
-Right now there are only two parts to the Faker, a legacy Faker class, and Faker_Company.
-
 Usage:
 
 ```
-echo Faker::name();
-echo Faker::paragraphs(3);
-// etc...
+require_once 'Faker.php';
+$fake = new Faker();
+
+echo $fake->Person->name();
+echo $fake->Internet->email();
+echo $fake->Color->hex();
+echo $fake->Product->sku();
 ```
 
 
