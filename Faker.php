@@ -18,10 +18,6 @@ class Faker {
 
 	const UserNames = "xel helly moo shaz mated reu lonny mateo billpul hula ganj ahah drunk monk ey eye ore blast gubba roo";
 
-	static public function email() {
-		return 'test@testy.com';
-	}
-
 	static public function number($low=1, $high=10) {
 		return round(rand($low, $high));
 	}

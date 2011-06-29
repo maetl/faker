@@ -1,12 +1,19 @@
 <?php
 
-class Faker_Company extends Faker_Base {
+class Fake_Company extends Fake {
 	
-	const MILITARY_INDUSTRIAL_VERBS = 'evolve enable target deliver mesh unleash engineer institute exploit visualize orchestrate drive schedule instantiate define execute';
+	/**
+	 * Workaround for lack of late static binding in PHP < 5.3.
+	 */
+	protected static function getClass($class = __CLASS__) {
+		return $class;
+	}
 	
-	const MILITARY_INDUSTRIAL_ADJECTIVES = 'virtual dynamic infra-red cyber flexinol electroactive armoured command-and-control 360-degree live ubiquitous tactical autonomous composite versatile mission-critical multipurpose remote-controlled bio-inspired self-organizing embedded';
+	const MILITARY_INDUSTRIAL_VERBS = 'evolve enable target deliver mesh unleash engineer institute exploit visualize orchestrate drive schedule instantiate define execute harness';
 	
-	const MILITARY_INDUSTRIAL_NOUNS = 'soldiers actuation nanotubes technology polymers robotics systems weapons drones robots battlespace battlefields sensing-units UAVs UCAVs payloads USVs weaponry mechanisms';
+	const MILITARY_INDUSTRIAL_ADJECTIVES = 'virtual dynamic infra-red cyber flexinol electroactive armoured command-and-control 360-degree live ubiquitous tactical autonomous composite versatile mission-critical multipurpose remote-controlled bio-inspired self-organizing embedded context-aware full-spectrum';
+	
+	const MILITARY_INDUSTRIAL_NOUNS = 'soldiers actuation nanotubes technology polymers robotics systems weapons drones armour battlespace battlefields sensing-units UAVs UCAVs payloads USVs weaponry mechanisms';
 	
 	const BULLSHIT_VERBS = 'implement utilize integrate streamline optimize evolve transform embrace enable orchestrate leverage reinvent aggregate architect enhance incentivize morph empower envisioneer monetize harness facilitate seize disintermediate synergize strategize deploy brand grow target syndicate synthesize deliver mesh incubate engage maximize benchmark expedite reintermediate whiteboard visualize repurpose innovate scale unleash drive extend engineer revolutionize generate exploit transition e-enable iterate cultivate matrix productize redefine recontextualize';
 	
@@ -19,10 +26,10 @@ class Faker_Company extends Faker_Base {
 	 */
 	public static function military_industrial_bullshit() {
 		return implode(' ', array(
-								self::lexicalize(1, 1, array(' ', self::MILITARY_INDUSTRIAL_VERBS), 'ucfirst'),
-								self::lexicalize(1, 1, array(' ', self::MILITARY_INDUSTRIAL_ADJECTIVES)),
-								self::lexicalize(1, 1, array(' ', self::MILITARY_INDUSTRIAL_NOUNS))
-								));
+				ucfirst(self::lexicalize(explode(' ', self::MILITARY_INDUSTRIAL_VERBS))),
+				self::lexicalize(explode(' ', self::MILITARY_INDUSTRIAL_ADJECTIVES), 1, 2),
+				self::lexicalize(explode(' ', self::MILITARY_INDUSTRIAL_NOUNS))
+			));
 	}
 	
 	/**
@@ -30,12 +37,12 @@ class Faker_Company extends Faker_Base {
 	 *
 	 * Based on the wordlist from http://dack.com/web/bullshit.html
 	 */
-	static function web2_bullshit() {
+	public static function corporate_bullshit() {
 		return implode(' ', array(
-								self::lexicalize(1, 1, array(' ', self::BULLSHIT_VERBS), 'ucfirst'),
-								self::lexicalize(1, 1, array(' ', self::BULLSHIT_ADJECTIVES)),
-								self::lexicalize(1, 1, array(' ', self::BULLSHIT_NOUNS))
-								));
+				ucfirst(self::lexicalize(explode(' ', self::BULLSHIT_VERBS))),
+				self::lexicalize(explode(' ', self::BULLSHIT_ADJECTIVES)),
+				self::lexicalize(explode(' ', self::BULLSHIT_NOUNS))
+			));
 	}
 	
 }
