@@ -15,21 +15,23 @@ class Fake_Internet extends Fake {
 	/**
  	 * A fake email address.
 	 */
-	public static function email() {
+	public function email() {
 		return 'test@testy.com';
 	}
+
+	const UserNames = "xel helly moo shaz mated reu lonny mateo billpul hula ganj ahah drunk monk ey eye ore blast gubba roo";
 	
 	/**
  	 * A fake username.
 	 */
-	public static function username() {
-		//
+	public function username() {
+		return self::lexicalize(explode(' ', self::UserNames), 2, 2, 'ucfirst');
 	}
 
 	/**
  	 * A fake computer hostname
 	 */
-	public static function hostname() {
+	public function hostname() {
 		//
 	}
 	
@@ -37,35 +39,35 @@ class Fake_Internet extends Fake {
  	 * A fake server name.
 	 * Some service name such as mail, dns, etc, prepended to a fake domain name.
 	 */
-	public static function server_name() {
+	public function server_name() {
 		//
 	}
 
 	/**
 	 * A fake domain name.
 	 */
-	public static function domain_name() {
+	public function domain_name() {
 		//
 	}
 
 	/**
 	 * A random network service name. Only fairly common services are included.
 	 */
-	public static function network_service() {
+	public function network_service() {
 		//
 	}
 
 	/**
 	 * A random IP V4 Address.
 	 */
-	public static function ip_v4() {
+	public function ip_v4() {
 		//
 	}
 	
 	/**
 	 * A random IP V6 Address.
 	 */
-	public static function ip_v6() {
+	public function ip_v6() {
 		//
 	}
 

@@ -1,9 +1,16 @@
 <?php
 
 /**
- * 
+ * Base class for fake generator objects.
  */
 abstract class Fake {
+
+	/**
+	 * Workaround for lack of late static binding in PHP < 5.3.
+	 */
+	protected static function getClass($class = __CLASS__) {
+		return $class;
+	}
 	
 	/**
 	 * Cache of stored word lists.
@@ -18,13 +25,6 @@ abstract class Fake {
 	 */
 	protected static function getList($index) {
 		return (isset(self::$lists[$index])) ? self::$lists[$index] : array();
-	}
-	
-	/**
-	 * Workaround for lack of late static binding in PHP < 5.3.
-	 */
-	protected static function getClass($class = __CLASS__) {
-		return $class;
 	}
 	
 	/**
