@@ -1,11 +1,12 @@
 <?php
+/**
+ * Faker — A Fake Text Generator
+ * 
+ */
 
 class Fake_Company extends Fake {
 	
-	/**
-	 * Workaround for lack of late static binding in PHP < 5.3.
-	 */
-	protected static function getClass($class = __CLASS__) {
+	protected function getClass($class = __CLASS__) {
 		return $class;
 	}
 	
