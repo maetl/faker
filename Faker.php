@@ -11,7 +11,11 @@ class Faker {
 
 	static function autoload($classname) {
 		$classpath = dirname(__FILE__) . '/' . str_replace('_', '/', $classname) . '.php';
-		if (file_exists($classpath)) require_once $classpath;
+		if (file_exists($classpath)) {
+			require_once $classpath;
+		} else {
+			throw new Exception();
+		}
 	}
 
 	public function __get($property) {
@@ -31,12 +35,15 @@ class Faker {
 			return;
 		}
 
-		$targets = explode(':', $arguments[1]);
+		$targets = explode('.', $arguments[1]);
 		$method = array_pop($targets);
 		$object = 'Fake_' . implode('_', array_map('ucfirst', $targets));
-
-		$faker = new $object();
-		echo $object->method();
+		try {
+			$generator = new $object();
+			echo $generator->$method();			
+		} catch(Exception $error) {
+			echo $arguments[1] . " not found.\n\n";
+		}
 		return;		
 	}
 }
