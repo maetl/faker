@@ -16,6 +16,10 @@
  */
 class Fake_Product extends Fake {
 	
+	protected function getClass() {
+		return __CLASS__;
+	}
+	
 	/**
 	 * Generate a price.
 	 *

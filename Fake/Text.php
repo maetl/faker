@@ -16,11 +16,8 @@
  */
 class Fake_Text extends Fake {
 
-	/**
-	 * Workaround for lack of late static binding in PHP < 5.3.
-	 */
-	protected function getClass($class = __CLASS__) {
-		return $class;
+	protected function getClass() {
+		return __CLASS__;
 	}
 	
 	public function passage($paragraphs=3) {

@@ -16,6 +16,10 @@
  */
 class Fake_Color extends Fake {
 	
+	protected function getClass() {
+		return __CLASS__;
+	}
+	
 	/**
 	 * Return a random HTML-style hex color.
 	 */

@@ -16,8 +16,8 @@
  */
 class Fake_Company extends Fake {
 	
-	protected function getClass($class = __CLASS__) {
-		return $class;
+	protected function getClass() {
+		return __CLASS__;
 	}
 	
 	const MILITARY_INDUSTRIAL_VERBS = 'evolve enable target deliver mesh unleash engineer institute exploit visualize orchestrate drive schedule instantiate define execute harness';

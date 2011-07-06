@@ -13,6 +13,8 @@
 
 class Fake_Address extends Fake {
 	
-	
+	protected function getClass() {
+		return __CLASS__;
+	}
 	
 }
