@@ -1,9 +1,19 @@
 <?php
 /**
- * Faker — A Fake Text Generator
+ * Faker {{version}}
+ * A Fake Text Generator
+ * <http://github.com/maetl/Faker>
+ *
+ * Copyright (c) 2011, Mark Rickerby <http://maetl.net>
+ * All rights reserved.
  * 
+ * This library is free software; refer to the terms in the LICENSE file found
+ * with this source code for details about modification and redistribution.
  */
 
+/**
+ * A fake company or corporation and all things that go with it.
+ */
 class Fake_Company extends Fake {
 	
 	protected function getClass($class = __CLASS__) {
