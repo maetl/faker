@@ -57,11 +57,13 @@ abstract class Fake {
 		$total = ($min != $max) ? rand($min, $max) : $max;
 		$counter = 0;
 		$output = '';
+		$used = array();
 		while ($counter < $total) {
 			$key = rand(1, $length);
-			if (!$key || !isset($list[$key])) continue;
+			if (!$key || !isset($list[$key]) || in_array($key, $used)) continue;
 			if ($counter != 0) $output .= ' ';
 			$output .= ($filter) ? $filter($list[$key]) : $list[$key];
+			$used[] = $key;
 			$counter++;
 		}
 		return $output;
