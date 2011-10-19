@@ -16,10 +16,6 @@
  */
 class Fake_Person extends Fake {
 	
-	protected function getClass() {
-		return __CLASS__;
-	}
-	
 	const ProperNames = "Jackson Jack Bean Benetto Boris George Joerg Jakeson Mitch Bev Rich Shirl Shelly Hayden Howard Helen Helga Henriet";
 	
 	public function name() {
