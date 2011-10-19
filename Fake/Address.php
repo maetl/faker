@@ -11,10 +11,18 @@
  * with this source code for details about modification and redistribution.
  */
 
+/**
+ * A fake address.
+ */
 class Fake_Address extends Fake {
 	
-	protected function getClass() {
-		return __CLASS__;
+	private $cities = 'Sydney,Austin,Los Angeles,Miami,New York,London,Manchester,Bristol,Brisbane,Auckland,Frankfurt,Paris,Madrid,Warsaw,Kiev,Melbourne,Adelaide,Perth,Canberra,Bankok,Jakarta,Singapore,Hong Kong,Shanghai,Tokyo,Seoul,Mumbai,Madras,Newcastle,San Francisco,Seattle,Denver,Dallas,Santiago,Buenos Aires,São Paulo';
+	
+	/**
+	 * @todo handle regionalized addresses
+	 */
+	public function city() {
+		return self::lexicalize(explode(',', $this->cities));
 	}
 	
 }
