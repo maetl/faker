@@ -41,22 +41,23 @@ class Faker {
 	static public function main($arguments) {
 		
 		if (!isset($arguments[1]) || $arguments[1] == '--help' || $arguments[1] == '-h') {
-			echo "Faker {{version}}\nA fake data generator.\n\Example usage:\n$ faker person.name\n$ faker color.hex\n\n";
+			echo "Faker {{version}}\nA fake data generator.\nEg:\n $ faker person.name\n $ faker color.hex\n\n";
 			return;
 		}
 
 		$targets = explode('.', $arguments[1]);
 		$method = array_pop($targets);
-		$object = 'Fake_' . implode('_', array_map('ucfirst', $targets));
+		$fake = 'Fake_' . implode('_', array_map('ucfirst', $targets));
 		
 		try {
-			$generator = new $object();
+			$faker = new $fake();
 			
-			if (is_callable(array($generator, $method))) {
-				echo $generator->$method();	
+			if (is_callable(array($faker, $method))) {				
+				echo call_user_func_array(array($faker, $method), array_slice($arguments, 2));
 			} else {
-				echo $method . " is not an attribute of " . implode('.', $targets) . "\n\n";
-			}	
+				echo $method . " is not part of " . implode('.', $targets) . "\n\n";
+			}
+			
 		} catch(Exception $error) {
 			echo $arguments[1] . " not found.\n\n";
 		}
