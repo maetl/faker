@@ -12,13 +12,9 @@
  */
 
 /**
- * A fake product item.
+ * A fake product.
  */
 class Fake_Product extends Fake {
-	
-	protected function getClass() {
-		return __CLASS__;
-	}
 	
 	/**
 	 * Generate a price.
@@ -26,7 +22,7 @@ class Fake_Product extends Fake {
 	 * @param int $low
 	 * @param int $high
 	 */
-	static public function price($low=10, $high=99) {
+	public function price($low=10, $high=99) {
 		return round(rand($low, $high), 2);
 	}
 	
@@ -35,12 +31,12 @@ class Fake_Product extends Fake {
 	 *
 	 * @param string $name name of the product to base the identifier
 	 */
-	static public function sku($name=false) {
+	public function sku($name=false) {
 		if ($name) {
-			$sku = substr(strtoupper(str_replace(array('a','e','i','o','u', ' '), '', $name)), 0, 6);
+			$sku = substr(strtoupper(str_replace(array('a','e','i','o','u'), '', $name)), 0, 6);
 		} else {
 			$sku = self::lexicalize(explode(',', 'b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z'), 3, 6, 'strtoupper');
 		}
-		return $sku . "-" . rand(100,999);
+		return str_replace(' ', '', $sku) . "-" . rand(100,999);
 	}	
 }
