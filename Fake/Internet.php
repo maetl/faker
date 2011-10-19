@@ -16,10 +16,6 @@
  */
 class Fake_Internet extends Fake {
 	
-	protected function getClass() {
-		return __CLASS__;
-	}
-	
 	/**
  	 * A fake email address.
 	 */
