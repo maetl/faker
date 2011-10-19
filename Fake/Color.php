@@ -12,18 +12,14 @@
  */
 
 /**
- * A randomized color generator.
+ * Random color generator.
  */
 class Fake_Color extends Fake {
-	
-	protected function getClass() {
-		return __CLASS__;
-	}
 	
 	/**
 	 * Return a random HTML-style hex color.
 	 */
-	static public function hex() {
+	public function hex() {
 		$color = "#";
     	for ($i = 0; $i<6; $i++) {
     		$color .=  dechex(rand(0,15));
@@ -34,7 +30,7 @@ class Fake_Color extends Fake {
 	/**
 	 * Return a random RGB color with 8-bits per channel.
 	 */
-	static public function rgb($glue=',') {
+	public function rgb($glue=',') {
 		$triplet = implode($glue, array(rand(0,255), rand(0,255), rand(0,255)));
 		return "($triplet)";
 	}

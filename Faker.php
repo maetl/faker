@@ -43,19 +43,26 @@ class Faker {
 	static public function main($arguments) {
 		
 		if (!isset($arguments[1]) || $arguments[1] == '--help' || $arguments[1] == '-h') {
-			echo "Faker\nA fake data generator.\n\nUsage:\n$ faker [method]\n$ faker [type]:[method]\n\n";
+			echo "Faker\nA fake data generator.\n\nUsage:\n$ faker [method]\n$ faker [type]:[method]";
 			return;
 		}
 
 		$targets = explode('.', $arguments[1]);
 		$method = array_pop($targets);
 		$object = 'Fake_' . implode('_', array_map('ucfirst', $targets));
+		
 		try {
 			$generator = new $object();
-			echo $generator->$method();			
+			
+			if (is_callable(array($generator, $method))) {
+				echo $generator->$method();	
+			} else {
+				echo $method . " is not an attribute of " . implode('.', $targets) . "\n\n";
+			}	
 		} catch(Exception $error) {
 			echo $arguments[1] . " not found.\n\n";
 		}
-		return;		
+		
+		return;	
 	}
 }

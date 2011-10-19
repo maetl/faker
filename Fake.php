@@ -12,19 +12,9 @@
  */
 
 /**
- * Base class for fake generator objects.
+ * Base class for fake object generators.
  */
 abstract class Fake {
-
-	/**
-	 * Workaround for lack of late static binding in PHP < 5.3.
-	 */
-	abstract protected function getClass();
-	
-	public function __get($property) {
-		$classname = $this->getClass() . '_' . $property;
-		return new $classname;
-	}
 	
 	/**
 	 * Cache of stored word lists.
