@@ -41,7 +41,7 @@ class Faker {
 	static public function main($arguments) {
 		
 		if (!isset($arguments[1]) || $arguments[1] == '--help' || $arguments[1] == '-h') {
-			echo "Faker\nA fake data generator.\n\nUsage:\n$ faker [method]\n$ faker [type]:[method]";
+			echo "Faker {{version}}\nA fake data generator.\n\Example usage:\n$ faker person.name\n$ faker color.hex\n\n";
 			return;
 		}
 
