@@ -11,7 +11,6 @@
  * with this source code for details about modification and redistribution.
  */
 
-
 spl_autoload_register(array('Faker', 'autoload'));
 
 /**
@@ -31,8 +30,7 @@ class Faker {
 	}
 
 	public function __get($property) {
-		$classname = 'Fake_' . $property;
-		return new $classname;
+		return new Faker_Invoker($property);
 	}
 	
 	/**
