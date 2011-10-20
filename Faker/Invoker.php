@@ -6,6 +6,9 @@
  */
 class Faker_Invoker {
 	
+	/**
+	 * @param string $property name segment of class to locate
+	 */
 	public function __construct($property) {
 		$this->fake = Faker_Locator::instance()->locate($property);
 	}
