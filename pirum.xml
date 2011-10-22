@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <server>
   <name>maetl.github.com/faker</name>
-  <summary>Data Faker</summary>
+  <summary>Faker Channel</summary>
   <alias>faker</alias>
   <url>http://maetl.github.com/faker</url>
 </server>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://maetl.github.com/faker</id>
-    <updated>2011-10-22T15:18:38+11:00</updated>
-    <title>Data Faker Latest Releases</title>
+    <updated>2011-10-22T15:45:59+11:00</updated>
+    <title>Faker Channel Latest Releases</title>
     <link href="http://maetl.github.com/faker/feed.xml" rel="self" />
     <author>
         <name>http://maetl.github.com/faker</name>
