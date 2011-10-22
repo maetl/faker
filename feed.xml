@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://maetl.github.com/faker</id>
-    <updated>2011-10-22T15:11:39+11:00</updated>
+    <updated>2011-10-22T15:18:38+11:00</updated>
     <title>Data Faker Latest Releases</title>
     <link href="http://maetl.github.com/faker/feed.xml" rel="self" />
     <author>
         <name>http://maetl.github.com/faker</name>
     </author>
 
-
+    <entry>
+        <title>Faker 0.1.0 (beta)</title>
+        <link href="http://maetl.github.com/faker/get/Faker-0.1.0.tgz" />
+        <id>http://maetl.github.com/faker/get/Faker-0.1.0.tgz</id>
+        <author>
+            <name>maetl</name>
+        </author>
+        <updated>2011-10-22T04:18:05+11:00</updated>
+        <content>
+            Generates ludicrous randomized text for functional testing, fuzz testing, or lorem ipsum-esque purposes.
+        </content>
+    </entry>
 </feed>
