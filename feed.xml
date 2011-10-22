@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://maetl.github.com/Faker</id>
-    <updated>2011-10-22T11:59:13+11:00</updated>
+    <updated>2011-10-22T12:11:13+11:00</updated>
     <title>Faker Latest Releases</title>
     <link href="http://maetl.github.com/Faker/feed.xml" rel="self" />
     <author>
@@ -17,9 +17,7 @@
         </author>
         <updated>2011-10-22T00:58:37+11:00</updated>
         <content>
-            
--
- 
+            Generates ludicrous randomized text for functional testing, fuzz testing, or lorem ipsum-esque purposes.
         </content>
     </entry>
 </feed>
