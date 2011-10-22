@@ -4,7 +4,7 @@
     http://pear.php.net/dtd/package-2.0
     http://pear.php.net/dtd/package-2.0.xsd">
  <name>Faker</name>
- <uri>maetl.github.com/Faker</uri>
+ <channel>maetl.github.com/faker</channel>
  <summary>A fake text generator</summary>
  <description>Generates ludicrous randomized text for functional testing, fuzz testing, or lorem ipsum-esque purposes.</description>
  <lead>
@@ -13,8 +13,8 @@
   <email>me@maetl.net</email>
   <active>yes</active>
  </lead>
- <date>2011-10-19</date>
- <time>23:59:59</time>
+ <date>2011-10-22</date>
+ <time>15:44:00</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -30,6 +30,12 @@
      <file name="README.md" role="doc" />
 	 <file name="LICENSE" role="doc" />
 	 <file baseinstalldir="/" name="Main.php" install-as="faker" role="script">
+		<tasks:replace from="{{version}}" to="version" type="package-info" />
+	 </file>
+	 <file name="Fake.php" role="php">
+		<tasks:replace from="{{version}}" to="version" type="package-info" />
+	 </file>
+	 <file name="Faker.php" role="php">
 		<tasks:replace from="{{version}}" to="version" type="package-info" />
 	 </file>
 	 <dir name="Fake">
