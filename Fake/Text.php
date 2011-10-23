@@ -66,7 +66,7 @@ class Fake_Text extends Fake {
 			$max = $words;
 		}
 		
-		$list = $this->getWordList();
+		$list = self::getList('words');
 		return ucfirst(self::lexicalize($list, $min, $max)) . '.';
 	}
 
