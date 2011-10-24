@@ -12,13 +12,9 @@
  */
 
 /**
- * A fake text generator.
+ * Generates streams of random text.
  */
 class Fake_Text extends Fake {
-
-	protected function getClass() {
-		return __CLASS__;
-	}
 	
 	public function passage($paragraphs=3) {
 		$passage = "";
@@ -29,21 +25,6 @@ class Fake_Text extends Fake {
 			$counter++;
 		}
 		return $passage;
-	}
-
-	public function htmlPassage($paragraphs=3) {
-		$passage = "";
-		$counter = 0;
-		while($counter < $paragraphs) {
-			$passage .= self::htmlParagraph(rand(3,12));
-			if ($counter != $paragraphs-1) $passage .= "\n\n";
-			$counter++;
-		}
-		return $passage;
-	}
-
-	public function htmlParagraph($sentences=3) {
-		return "<p>".self::paragraph($sentences)."</p>";
 	}
 
 	public function paragraph($sentences=3) {
@@ -57,28 +38,13 @@ class Fake_Text extends Fake {
 		return $paragraph;
 	}
 
-	public function sentence($words=false) {
-		if (!$words) {
-			$min = 1;
-			$max = rand(1,12);
-		} else {
-			$min = $words;
-			$max = $words;
-		}
-		
-		$list = self::getList('words');
-		return ucfirst(self::lexicalize($list, $min, $max)) . '.';
+	public function sentence($max=false, $min) {
+		return ucfirst($this->words($max, $min)) . '.';
 	}
 
-	public function words($words=false) {
-		if (!$words) {
-			$min = 1;
-			$max = rand(1,12);
-		} else {
-			$min = $words;
-			$max = $words;
-		}
-		return self::lexicalize(self::getList('words'), $min, $max);
-	}
-	
+	public function words($min=false, $max=false, $filter=false) {
+		if (!$min) $min = 1;
+		if (!$max) $max = rand(2,12);
+		return $this->lexicalize($this->getCorpus(), $min, $max, $filter);
+	}	
 }

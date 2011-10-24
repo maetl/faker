@@ -35,7 +35,7 @@ class Fake_Product extends Fake {
 		if ($name) {
 			$sku = substr(strtoupper(str_replace(array('a','e','i','o','u'), '', $name)), 0, 6);
 		} else {
-			$sku = self::lexicalize(explode(',', 'b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z'), 3, 6, 'strtoupper');
+			$sku = $this->lexicalize(explode(',', 'b,c,d,f,g,h,j,k,l,m,n,p,q,r,s,t,v,w,x,y,z'), 3, 6, 'strtoupper');
 		}
 		return str_replace(' ', '', $sku) . "-" . rand(100,999);
 	}	

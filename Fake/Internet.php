@@ -36,7 +36,7 @@ class Fake_Internet extends Fake {
 	 */
 	public function username() {
 		$list = Faker_Corpus::getList('Person/last_name');
-		return self::lexicalize($list);
+		return $this->lexicalize($list);
 	}
 
 	/**
@@ -81,7 +81,7 @@ class Fake_Internet extends Fake {
 	 * A random network service name. Only fairly common services are included.
 	 */
 	public function network_service() {
-		return self::lexicalize($this->network_services);
+		return $this->lexicalize($this->network_services);
 	}
 
 	/**

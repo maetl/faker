@@ -22,7 +22,7 @@ class Fake_Address extends Fake {
 	 * @todo handle regionalized addresses
 	 */
 	public function city() {
-		return self::lexicalize(explode(',', $this->cities));
+		return $this->lexicalize(explode(',', $this->cities));
 	}
 	
 }

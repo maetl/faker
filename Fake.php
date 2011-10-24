@@ -12,9 +12,24 @@
  */
 
 /**
- * Base class for fake object generators.
+ * Base class for fake things.
  */
 abstract class Fake {
+	
+	/**
+	 * Gets a list from the corpus of words.
+	 *
+	 * @return string
+	 */
+	protected function getCorpus() {
+		$trace=debug_backtrace();
+		array_shift($trace);
+		$caller=array_shift($trace);
+		$index = get_class($this) . '_' . $caller['function'];
+		$index = str_replace('Fake', 'Faker_Corpus', $index);
+		$index = '/'. str_replace('_', '/', $index) . '.' . 'txt';
+		return self::getCorpusList($index);
+	}
 	
 	/**
 	 * Cache of stored word lists.
@@ -27,8 +42,8 @@ abstract class Fake {
 	 * @param string $index
 	 * @return array|false
 	 */
-	protected static function getList($index) {
-		return (isset(self::$lists[$index])) ? self::$lists[$index] : array();
+	private static function getCorpusList($index) {
+		return (isset(self::$lists[$index])) ? self::$lists[$index] : self::addCorpusList($index);
 	}
 	
 	/**
@@ -37,8 +52,11 @@ abstract class Fake {
 	 * @param string $index
 	 * @param array|string $list
 	 */
-	protected static function addList($index, $list, $delimiter=' ') {
-		if (is_string($list)) $list = explode($delimiter, $list);
+	private static function addCorpusList($index, $delimiter=' ') {
+		$data = file_get_contents(dirname(__FILE__) . $index);
+		$data = str_replace("\n", ' ', $data);
+		$data = preg_replace('/\s\s+/', ' ', $data);
+		$list = explode($delimiter, $data);
 		self::$lists[$index] = $list;
 		return self::$lists[$index];
 	}
@@ -50,8 +68,12 @@ abstract class Fake {
 	 * @param int $min minimum number of words in the sequence (defaults to 1)
 	 * @param int $max maximum number of words in the sequence (defaults to 1)
 	 * @param string $filter apply an optional filter function to each word
+	 * @return string
 	 */
-	static public function lexicalize($list, $min=1, $max=1, $filter=false) {
+	public function lexicalize($list, $min=1, $max=1, $filter=false) {
+		if (!is_array($list) && is_string($list)) {
+			$list = explode(' ', $list);
+		}
 		$length = count($list);
 		$total = ($min != $max) ? rand($min, $max) : $max;
 		$counter = 0;
@@ -66,6 +88,5 @@ abstract class Fake {
 			$counter++;
 		}
 		return $output;
-	}
-	
+	}	
 }

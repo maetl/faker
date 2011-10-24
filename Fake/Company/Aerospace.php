@@ -27,9 +27,9 @@ class Fake_Company_Aerospace extends Fake_Company {
 	 */
 	public function bullshit() {
 		return implode(' ', array(
-				ucfirst(self::lexicalize(explode(' ', $this->military_verbs))),
-				self::lexicalize(explode(' ', $this->military_adjectives), 1, 2),
-				self::lexicalize(explode(' ', $this->military_nouns))
+				ucfirst($this->lexicalize(explode(' ', $this->military_verbs))),
+				$this->lexicalize(explode(' ', $this->military_adjectives), 1, 2),
+				$this->lexicalize(explode(' ', $this->military_nouns))
 			));
 	}
 	
