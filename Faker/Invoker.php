@@ -33,7 +33,7 @@ class Faker_Invoker {
 	public function __call($method, $args) {
 		if (is_callable(array($this->fake, $method))) {
 			Faker_Locator::instance()->clear();
-			return $this->fake->$method();
+			return call_user_func_array(array($this->fake, $method), $args);
 		} else {
 			throw new Exception();
 		}
