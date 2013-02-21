@@ -1,0 +1,22 @@
+{
+    "name": "maetl/faker",
+    "type": "library",
+    "description": "Generates ludicrous randomized text for functional testing, fuzz testing, or lorem ipsum-esque purposes.",
+    "homepage": "https://github.com/maetl/faker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Rickerby",
+            "homepage": "http://maetl.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Faker": "src/",
+			"Fake": "src/"
+        }
+    }
+}
